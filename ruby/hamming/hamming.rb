@@ -1,7 +1,6 @@
 class Hamming
   def self.compute(sequence1, sequence2)
-    sequence1.each_char.zip(sequence2.each_char).count do |a, b|
-      a != b && !a.nil? && !b.nil?
-    end
+    shortest = [sequence1.length, sequence2.length].min
+    (0...shortest).count { |i| sequence1[i] != sequence2[i] }
   end
 end
